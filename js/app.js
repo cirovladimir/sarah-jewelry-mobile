@@ -13,10 +13,11 @@ fb.MobileRouter = Backbone.Router.extend({
         "home": "home"
     },
 
+    initialize: function () {
+      $('#menu').html(new fb.views.Menu().$el);
+    },
+
     home: function () {
-        // Reset cached views
-        fb.myView = null;
-        fb.myFriendsView = null;
         var view = new fb.views.Home();
         fb.slider.slidePageFrom(view.$el, "left");
     }
@@ -25,7 +26,7 @@ fb.MobileRouter = Backbone.Router.extend({
 
 $(document).on('ready', function () {
 
-    fb.templateLoader.load(['home'], function () {
+    fb.templateLoader.load(['home', 'menu'], function () {
         fb.router = new fb.MobileRouter();
         Backbone.history.start();
     });

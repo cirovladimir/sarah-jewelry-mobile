@@ -12,3 +12,18 @@ fb.views.Home = Backbone.View.extend({
     }
 
 });
+
+fb.views.Menu = Backbone.View.extend({
+
+    initialize: function () {
+        var self = this;
+        this.template = fb.templateLoader.get('menu');
+        this.render();
+    },
+
+    render: function () {
+        this.$el.html(this.template());
+        return this;
+    }
+
+});
