@@ -27,3 +27,18 @@ fb.views.Menu = Backbone.View.extend({
     }
 
 });
+
+fb.views.Contact = Backbone.View.extend({
+
+    initialize: function () {
+        var self = this;
+        this.template = fb.templateLoader.get('contact');
+        this.render();
+    },
+
+    render: function () {
+        this.$el.html(this.template());
+        return this;
+    }
+
+});

@@ -10,7 +10,8 @@ fb.MobileRouter = Backbone.Router.extend({
 
     routes: {
         "": "home",
-        "home": "home"
+        "home": "home",
+        "contact": "contact"
     },
 
     initialize: function () {
@@ -20,13 +21,17 @@ fb.MobileRouter = Backbone.Router.extend({
     home: function () {
         var view = new fb.views.Home();
         fb.slider.slidePageFrom(view.$el, "left");
+    },
+
+    contact: function () {
+        fb.slider.slidePageFrom(new fb.views.Contact().$el, 'left');
     }
 
 });
 
 $(document).on('ready', function () {
 
-    fb.templateLoader.load(['home', 'menu'], function () {
+    fb.templateLoader.load(['home', 'menu', 'contact'], function () {
         fb.router = new fb.MobileRouter();
         Backbone.history.start();
     });
