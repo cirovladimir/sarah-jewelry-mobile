@@ -32,7 +32,7 @@ var MobileApp = function() {
     };
 
     this.alert = function(message, title) {
-        if (typeof(title)==='undefined') title = "Sociogram";
+        if (typeof(title)==='undefined') title = "Sarah";
         if (navigator.notification) {
             navigator.notification.alert(
                 message,
