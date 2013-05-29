@@ -11,6 +11,8 @@ fb.MobileRouter = Backbone.Router.extend({
     routes: {
         "": "home",
         "home": "home",
+        "about": "about",
+        "info": "info",
         "contact": "contact"
     },
 
@@ -23,6 +25,14 @@ fb.MobileRouter = Backbone.Router.extend({
         fb.slider.slidePageFrom(view.$el, "left");
     },
 
+    about: function () {
+        fb.slider.slidePageFrom(new fb.views.About().$el, 'left');
+    },
+
+    info: function () {
+        fb.slider.slidePageFrom(new fb.views.Info().$el, 'left');
+    },
+
     contact: function () {
         fb.slider.slidePageFrom(new fb.views.Contact().$el, 'left');
     }
@@ -31,7 +41,7 @@ fb.MobileRouter = Backbone.Router.extend({
 
 $(document).on('ready', function () {
 
-    fb.templateLoader.load(['home', 'menu', 'contact'], function () {
+    fb.templateLoader.load(['home', 'menu', 'about', /*'info',*/ 'contact'], function () {
         fb.router = new fb.MobileRouter();
         Backbone.history.start();
     });
