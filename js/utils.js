@@ -1,6 +1,6 @@
-var MobileApp = function() {
+var MobileApp = function () {
 
-    this.initialize = function() {
+    this.initialize = function () {
         this.models = {};
         this.views = {};
         this.templateLoader = new this.TemplateLoader();
@@ -10,18 +10,16 @@ var MobileApp = function() {
 
         this.templates = {};
 
-        this.load = function (names, callback) {
-
-            var deferreds = [],
-                self = this;
-
-            $.each(names, function (index, name) {
-                deferreds.push($.get('tpl/' + name + '.html', function (data) {
+        this.load = function (name, callback) {
+            var self = this;
+            if (self.templates[name]) {
+                callback(self.templates[name]);
+            } else {
+                $.get('tpl/' + name + '.html', function (data) {
                     self.templates[name] = Handlebars.compile(data);
-                }));
-            });
-
-            $.when.apply(null, deferreds).done(callback);
+                    callback(self.templates[name]);
+                })
+            }
         };
 
         // Get template by name from hash of preloaded templates
@@ -31,8 +29,8 @@ var MobileApp = function() {
 
     };
 
-    this.alert = function(message, title) {
-        if (typeof(title)==='undefined') title = "Sarah";
+    this.alert = function (message, title) {
+        if (typeof(title) === 'undefined') title = "Sarah";
         if (navigator.notification) {
             navigator.notification.alert(
                 message,
@@ -47,4 +45,4 @@ var MobileApp = function() {
 
     this.initialize();
 
-}
+};

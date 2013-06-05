@@ -2,8 +2,10 @@ fb.views.Home = Backbone.View.extend({
 
     initialize: function () {
         var self = this;
-        this.template = fb.templateLoader.get('home');
-        this.render();
+        fb.templateLoader.load('home', function (data) {
+            self.template = data;
+            self.render();
+        });
     },
 
     render: function () {
@@ -17,23 +19,26 @@ fb.views.Menu = Backbone.View.extend({
 
     initialize: function () {
         var self = this;
-        this.template = fb.templateLoader.get('menu');
-        this.render();
+        fb.templateLoader.load('menu', function (data) {
+            self.template = data;
+            self.render();
+        });
     },
 
     render: function () {
         this.$el.html(this.template());
         return this;
     }
-
 });
 
 fb.views.About = Backbone.View.extend({
 
     initialize: function () {
         var self = this;
-        this.template = fb.templateLoader.get('about');
-        this.render();
+        fb.templateLoader.load('about', function (data) {
+            self.template = data;
+            self.render();
+        });
     },
 
     render: function () {
@@ -47,8 +52,10 @@ fb.views.Info = Backbone.View.extend({
 
     initialize: function () {
         var self = this;
-        this.template = fb.templateLoader.get('info');
-        this.render();
+        fb.templateLoader.load('info', function (data) {
+            self.template = data;
+            self.render();
+        });
     },
 
     render: function () {
@@ -62,8 +69,10 @@ fb.views.Contact = Backbone.View.extend({
 
     initialize: function () {
         var self = this;
-        this.template = fb.templateLoader.get('contact');
-        this.render();
+        fb.templateLoader.load('contact', function (data) {
+            self.template = data;
+            self.render();
+        });
     },
 
     render: function () {
