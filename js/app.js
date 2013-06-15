@@ -41,7 +41,7 @@ fb.MobileRouter = Backbone.Router.extend({
 
 $(document).on('ready', function () {
 
-    fb.templateLoader.load('home', function () {
+    fb.templateLoader.load(['about', 'contact', 'home', 'info', 'menu'], function () {
         fb.router = new fb.MobileRouter();
         Backbone.history.start();
     });
