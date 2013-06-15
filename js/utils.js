@@ -18,7 +18,7 @@ var MobileApp = function () {
                 $.get('tpl/' + name + '.html', function (data) {
                     self.templates[name] = Handlebars.compile(data);
                     callback(self.templates[name]);
-                })
+                }, 'text');
             }
         };
 
