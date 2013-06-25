@@ -11,5 +11,15 @@ a {
 }
 
 .content {
+    position: relative;
+    background-color: #EAEAEA;
+    padding: 30px 20px;
+}
+
+.content.contact li {
+    line-height: 30px;
+}
+
+body {
     background-color: #EAEAEA;
 }
